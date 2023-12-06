@@ -1,0 +1,36 @@
+server:
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/spring-boot-realm-dev
+          jwk-set-uri: http://localhost:8080/realms/spring-boot-realm-dev/protocol/openid-connect/certs
+logging:
+  level:
+    org:
+      keycloak: DEBUG
+
+jwt:
+  auth:
+    converter:
+      principal-attribute: preferred_username
+      resource-id: spring-client-api-rest
+
+keycloak:
+  server-url: http://localhost:8080
+  realm:
+    name: spring-boot-realm-dev
+    master-realm: master
+  admin:
+    cli: admin-cli
+    user-console: admin
+    password-console: admin
+    secret: xpjRbbSPDADbNpOoOhDFgaRdiHhTRYKo
+
+
+
+
+
